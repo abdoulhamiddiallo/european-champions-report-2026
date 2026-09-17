@@ -773,7 +773,7 @@ function fitPanels(root){(root||document).querySelectorAll(".rp .panel, .rp .fit
 function fitRep(){const w=$("#rps"),v=$("#rpv");if(!w||!v)return;
  if(innerWidth<=760){const s=w.clientWidth/900;v.style.width="900px";v.style.transform=`scale(${s})`;v.style.transformOrigin="top left";w.style.height=Math.round(900*9/16*s)+"px"}
  else{v.style.width="";v.style.transform="";w.style.height=""}
- const hint=$("#rhint");if(hint)hint.textContent=innerWidth<=760?"Le rapport est en format paysage : tournez votre téléphone ou pincez pour zoomer. Les 26 pages sont aussi exportables en PDF.":"Flèches ← et → pour tourner les pages. Les graphiques restent interactifs : survolez-les.";}
+ const hint=$("#rhint");if(hint)hint.textContent=innerWidth<=760?"Le rapport est en format paysage : tournez votre téléphone ou pincez pour zoomer. Les "+RPAGES.length+" pages sont aussi exportables en PDF.":"Flèches ← et → pour tourner les pages. Les graphiques restent interactifs : survolez-les.";}
 addEventListener("resize",()=>{fitRep();fitPanels()});
 function csv(){const k=["name","league","country","coach","P","W","D","L","GF","GA","Pts","runner","rPts","margin","dom","title","streak","ucl","rev","net","ev"];
  const t=[k.join(";")].concat(CLUBS.map(c=>k.map(x=>c[x]==null?"":String(c[x]).replace(".",",")).join(";"))).join("\n");
